@@ -216,4 +216,10 @@ output_path = Path("inexpensive_loans.csv")
 
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
-# YOUR CODE HERE!
+print('Saving Inexpensive Loans List...')
+with open(output_path,'w',newline='') as f:
+    csvwriter = csv.writer(f,delimiter=',')
+    csvwriter.writerow(header)
+    for row in inexpensive_loans:
+        csvwriter.writerow(row.values())
+    print('***Saved***')
